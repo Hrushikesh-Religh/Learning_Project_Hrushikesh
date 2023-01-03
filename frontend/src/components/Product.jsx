@@ -1,9 +1,23 @@
 import axios from 'axios';
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import s from './product.module.css'
 //-----
 function Product() {
 
+    let [data,setData] = useState()
+    useEffect(()=>{
+        axios.get("http://localhost:3001/category")
+        .then((res)=>{
+            setData(res.data)
+            console.log(res.data);
+            console.log("Data Received ✔");
+        })
+        .catch(()=>{
+            console.log("Error 😒");
+        })
+    },[])
+
+    
     let [prodName, setProdName] = useState("");
     let [category, setCategory] = useState("");
     let [image, setImage] = useState();
@@ -25,11 +39,12 @@ function Product() {
     }
     //-----
     function submitForm(e) {
-        // let payload = { prodName, category, image, categoryDesp, features }
         axios.post("http://localhost:3001/product", {
             "productname":`${prodName}`,
+            "category":`${category}`,
             "catdesp":`${categoryDesp}`,
             "features":`${features}`
+            // "category":`${category}`
         })
             .then(() => {
                 console.log("Data saved ✔");
@@ -52,14 +67,20 @@ function Product() {
                         }
                     } /></span><br />
                 <div id={s.selectCategory}>
-                    <h3>Category:</h3> <select name="Category" id="" onChange={(e) => {
+                    <h3>Category:</h3> <select name="Category" id="" 
+                    onChange={(e) => {
                         setCategory(e.target.value)
                     }}>
-                        <option value="cat1" ref={val}>Cat1</option>
-                        <option value="cat2">Cat2</option>
-                        <option value="cat3">Cat3</option>
-                        <option value="cat4">Cat4</option>
-                        <option value="cat5">Cat5</option>
+                        <option>Select</option>
+                         {
+                            data?.map((data)=>{
+                                return(
+                                    <option key={data.id}>
+                                        {data.categoryname}
+                                    </option>
+                                )
+                            })
+                        }
                     </select>
                 </div><br />
                 <h3>Product Image: </h3>

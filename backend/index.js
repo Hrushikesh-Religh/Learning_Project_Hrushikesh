@@ -15,16 +15,9 @@ const db = mysql.createConnection({
 app.use(express.json())
 app.use(cors())
 
+
 app.get("/category",(req,res)=>{
   const query = "select * from category"
-  db.query(query,(err,data)=>{
-    if(err) return res.json(err)
-    return res.json(data)
-  })
-})
-
-app.get("/product",(req,res)=>{
-  const query = "select * from product"
   db.query(query,(err,data)=>{
     if(err) return res.json(err)
     return res.json(data)
@@ -44,10 +37,29 @@ app.post("/category",(req,res)=>{
   })
 })
 
+
+app.get("/product",(req,res)=>{
+  const query = "select * from product"
+  db.query(query,(err,data)=>{
+    if(err) return res.json(err)
+    return res.json(data)
+  })
+})
+
+app.get("/product/:category",(req,res)=>{
+  const query = "select * from product where category = ?"
+  db.query(query,[req.params.category],(err,data)=>{
+    if(err) return res.json(err)
+    return res.json(data)
+  })
+})
+
+
 app.post("/product",(req,res)=>{
-  const query = "insert into product (`productname`,`catdesp`,`features`) values(?)"
+  const query = "insert into product (`productname`,`category`,`catdesp`,`features`) values(?)"
   const values = [
     req.body.productname,
+    req.body.category,
     req.body.catdesp,
     req.body.features
   ]
@@ -62,42 +74,6 @@ app.post("/product",(req,res)=>{
 app.get("/",(req,res)=>{
   res.json("backend")
 })
-// const express = require("express");
-// const bodyParser = require('body-parser');
-// const cors = require("cors");
-// const mysql = require('mysql2');
-// const app = express();
- 
-// app.use(cors());
-// // parse application/json
-// app.use(bodyParser.json());
-  
-// //create database connection
-// const conn = mysql.createConnection({
-//   host: 'localhost',
-//   port: 3306,
-//   user: 'root',
-//   password: 'root123',
-//   database: 'religh_lt'
-// });
- 
-// //connect to database
-// conn.connect((err) =>{
-//   if(err) throw err;
-//   console.log('Mysql Connected...');
-// });
- 
-// // categoryName, desc
-// //add new user
-// app.post('/category',(req, res) => {
-//   let name = req.body.categoryName;
-//   let desc = req.body.desc;
-//   let sql = "INSERT INTO category values (?,?)";
-//   let query = conn.query(sql, [name,desc],(err, results) => {
-//     if(err) throw err;
-//     res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
-//   });
-// });
  
 app.listen(3001, () => {
   console.log("Server running successfully");

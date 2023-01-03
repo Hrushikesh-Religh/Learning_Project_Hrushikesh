@@ -39,6 +39,13 @@ useEffect(()=>{
     }
     fetchAllProduct();
 },[])
+
+// function categoryDisplay(category){
+//     axios.get(`http://localhost:3001/product/:${category}`)
+//     .then((res)=>{
+//         setProduct(res.data)
+//     })
+// }
     return (
         <div id={s.mainSection}>
             <div id={s.search}>
@@ -46,11 +53,31 @@ useEffect(()=>{
             </div>
             <div id={s.navbar}>
                 <ul>
-                    <li>Home</li>
+                    <li 
+                    onClick={()=>{
+                        axios.get(`http://localhost:3001/product`)
+                                .then((res)=>{
+                                    setProduct(res.data)
+                                    console.log(product);
+                                })
+                                .catch(()=>{
+                                    console.log("Error");
+                                })
+                    }}>Home</li>
                     {
-                        category.map(category => {
+                        category?.map(category => {
                           return(
-                            <li>{category.categoryname}</li>
+                            <li key={category.id} 
+                            onClick={()=>{
+                                axios.get(`http://localhost:3001/product/${category.categoryname}`)
+                                .then((res)=>{
+                                    setProduct(res.data)
+                                    console.log(product);
+                                })
+                                .catch(()=>{
+                                    console.log("Error");
+                                })
+                            }}>{category.categoryname}</li>
                           )  
                         })
                     }
@@ -76,9 +103,9 @@ useEffect(()=>{
             <div id={s.product}>
                 <div id={s.productSpan}>
                     {
-                        product.map(product => {
+                        product?.map(product => {
                           return(
-                            <span>
+                            <span key={product.id}>
                                 Name: {product.productname} <br />
                                 Desc: {product.catdesp} <br />
                                 Features: {product.features}

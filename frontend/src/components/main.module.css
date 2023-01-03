@@ -49,6 +49,7 @@
 }
 #navbar>ul>li:hover{
     box-shadow: 3px 3px 1px 0px black;
+    cursor: pointer;
 }
 
 #productSpan>span{
