@@ -1,0 +1,61 @@
+#product{
+    border: 1px solid black;
+    padding-bottom: 10px;
+    text-align: center;
+    width: max-content;
+    margin: .5% auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+#product>h2{
+    border: 1px solid black;
+    width: 220px;
+    display: inline;
+    padding: 5px;
+    margin-top: 5px;
+    background-color: burlywood;
+    border-radius: 5px;
+    color: whitesmoke;
+}
+#form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#productName{
+    width: 220px;
+    height: 30px;
+    padding-left: 5px;
+    border: 2px solid cadetblue;
+    outline: none;
+}
+#selectCategory>select{
+    border: 2px solid cadetblue;
+    height: 30px;
+}
+#fileInput{
+    border: 2px solid cadetblue;
+    padding: 3px;
+    width: 220px;
+    height: 30px;
+}
+#form>textarea{
+    border: 2px solid cadetblue;
+    width: 220px;
+}
+#form>#btn{
+    width: 100px;
+    height: 30px;
+    background-color: burlywood;
+    border: 1px solid;
+    border-radius: 5px;
+    box-shadow: none;
+}
+#form>#btn:hover{
+    box-shadow: 3px 3px 1px 0px black;
+}

@@ -1,0 +1,31 @@
+{
+  "product": [
+    {
+      "prodName": "Nike",
+      "category": "cat3",
+      "image": [
+        {}
+      ],
+      "categoryDesp": "Nike Shoe",
+      "features": "Air Max",
+      "id": 1
+    },
+    {
+      "prodName": "hrushi",
+      "category": "cat2",
+      "image": [
+        {}
+      ],
+      "categoryDesp": "adsfsadfasfsafasf",
+      "features": "asfasfasfsafasfasfasfasfdasf",
+      "id": 2
+    },
+    {
+      "prodName": "Akshay",
+      "category": "cat5",
+      "categoryDesp": "sdkfaskdjf;askjf;laskjdf;laskjf;lkasjf;lkasfl;kasjfl;kad",
+      "features": "asdkfja;slkdjf;laskjdf;laksjdflkasjdfl;kasjf;lkasjf;lkasjf;lkasjdf;lkjasdfl;kjasf;lk",
+      "id": 3
+    }
+  ]
+}
