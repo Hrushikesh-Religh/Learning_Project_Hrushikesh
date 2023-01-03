@@ -33,7 +33,7 @@
 }
 .slideimg{
     width: 100%;
-    height: 200px;
+    height: 170px;
 }
 #navbar>ul{
     display: flex;
@@ -51,7 +51,11 @@
     box-shadow: 3px 3px 1px 0px black;
     cursor: pointer;
 }
-
+#product{
+    /* border: 1px solid white; */
+    height: 50vh;
+    overflow-y: scroll;
+}
 #productSpan>span{
     border: 1px solid;
     height: 125px;

@@ -14,7 +14,6 @@ function Category() {
   console.log(desc);
   //-----
   function submit(e) {
-    // let payload = { categoryName, desc }
     axios.post("http://localhost:3001/category", {
       "categoryname":`${categoryName}`,
       "catdesp":`${desc}`
@@ -34,22 +33,32 @@ function Category() {
   }
   //-----
   return (
-    <div id={s.category}>
+    <div id = {s.category}>
+
       <h2>Create Category</h2>
-      <form action="" id={s.form}>
+
+      <form id = {s.form}>
+
         <h3>Category Name:</h3>
-        <span><input type="text" placeholder='Name' id={s.categoryName}
+        <span>
+          <input type = "text" placeholder = 'Name' id = {s.categoryName}
           onChange={(e) => {
             setCategoryName(e.target.value);
           }} /></span><br />
+
         <h3>Category icon:</h3>
-        <span id={s.fileInput}><input type="file" accept="image/png, image/jpeg, image/ico"
-          onChange={getImage} /></span><br />
-        <textarea name="description" id="" cols="30" rows="10" placeholder='Category Description'
+        <span id = {s.fileInput}>
+          <input type = "file" accept = "image/png, image/jpeg, image/ico"
+          onChange = {getImage} />
+        </span><br />
+
+        <textarea name = "description" cols = "30" rows = "10" placeholder = 'Category Description'
           onChange={(e) => {
             setDesc(e.target.value);
           }}></textarea><br />
-        <input type="submit" id={s.btn} onClick={submit} />
+
+        <input type = "submit" id = {s.btn} onClick = {submit} />
+
       </form>
     </div>
   )
