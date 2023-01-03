@@ -25,8 +25,12 @@ function Product() {
     }
     //-----
     function submitForm(e) {
-        let payload = { prodName, category, image, categoryDesp, features }
-        axios.post("http://localhost:3000/product", payload)
+        // let payload = { prodName, category, image, categoryDesp, features }
+        axios.post("http://localhost:3001/product", {
+            "productname":`${prodName}`,
+            "catdesp":`${categoryDesp}`,
+            "features":`${features}`
+        })
             .then(() => {
                 console.log("Data saved ✔");
             })

@@ -14,9 +14,9 @@ function App() {
       <BrowserRouter>
         <Display />
         <Routes>
+          <Route element={<Main />} path='/main' />
           <Route element={<Product />} path='/product' />
           <Route element={<Category />} path='/category' />
-          <Route element={<Main />} path='/main' />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import s from './main.module.css'
 import img1 from '../images/1.png'
 import img2 from '../images/2.jpg'
@@ -7,9 +7,38 @@ import img4 from '../images/4.jpg'
 import img5 from '../images/5.jpg'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
+import axios from 'axios'
 
 function Main() {
 
+let [category, setCategory] = useState([])
+let [product, setProduct] = useState([])
+
+useEffect(()=>{
+    const fetchAllCategory = async ()=>{
+        try{
+            const res = await axios.get("http://localhost:3001/category")
+            console.log(res);
+            setCategory(res.data)
+        }catch(err){
+            console.log(err);
+        }
+    }
+    fetchAllCategory();
+},[])
+
+useEffect(()=>{
+    const fetchAllProduct = async ()=>{
+        try{
+            const res = await axios.get("http://localhost:3001/product")
+            console.log(res);
+            setProduct(res.data)
+        }catch(err){
+            console.log(err);
+        }
+    }
+    fetchAllProduct();
+},[])
     return (
         <div id={s.mainSection}>
             <div id={s.search}>
@@ -18,10 +47,13 @@ function Main() {
             <div id={s.navbar}>
                 <ul>
                     <li>Home</li>
-                    <li>Category 1</li>
-                    <li>Category 2</li>
-                    <li>Category 3</li>
-                    <li>Category 4</li>
+                    {
+                        category.map(category => {
+                          return(
+                            <li>{category.categoryname}</li>
+                          )  
+                        })
+                    }
                 </ul>
             </div>
             <Carousel autoPlay interval="3000" transitionTime="300" infiniteLoop showStatus={false} showThumbs={false} >
@@ -43,12 +75,17 @@ function Main() {
             </Carousel>
             <div id={s.product}>
                 <div id={s.productSpan}>
-                    <span>Product 1</span>
-                    <span>Product 2</span>
-                    <span>Product 3</span>
-                    <span>Product 4</span>
-                    <span>Product 5</span>
-                    <span>Product 6</span>
+                    {
+                        product.map(product => {
+                          return(
+                            <span>
+                                Name: {product.productname} <br />
+                                Desc: {product.catdesp} <br />
+                                Features: {product.features}
+                            </span>
+                          )  
+                        })
+                    }
                 </div>
             </div>
             <footer id={s.footer}>

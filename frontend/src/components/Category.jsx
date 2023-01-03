@@ -15,7 +15,7 @@ function Category() {
   //-----
   function submit(e) {
     // let payload = { categoryName, desc }
-    axios.post("http://localhost:3000/category", categoryName)
+    axios.post("http://localhost:3001/category", {"categoryname":`${categoryName}`,"catdesp":`${desc}`})
       .then(() => {
         console.log("Data saved ✔");
       })
