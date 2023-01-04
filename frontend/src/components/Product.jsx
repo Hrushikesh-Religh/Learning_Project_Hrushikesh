@@ -1,11 +1,11 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import s from './product.module.css'
 //-----
 function Product() {
 
     let [data, setData] = useState()
-
+    let msg = useRef()
     useEffect(() => {
         axios.get("http://localhost:3001/category")
             .then((res) => {
@@ -46,7 +46,11 @@ function Product() {
             "features": `${features}`
         })
             .then(() => {
+                msg.current.innerHTML = "Details Saved ✔"
                 console.log("Product details saved ✔");
+                setTimeout(()=>{
+                    msg.current.innerHTML=""
+                  },3000)
             })
             .catch(() => {
                 console.log("Error saving product details 😒");
@@ -111,7 +115,7 @@ function Product() {
                     }}></textarea>
 
                 <input type="submit" id={s.btn} onClick={submitForm} />
-
+                <div style={{color:'blue'}} ref={msg}></div>
             </form>
         </div>
     )

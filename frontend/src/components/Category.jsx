@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import s from './category.module.css'
 import axios from 'axios';
 //-----
@@ -8,6 +8,8 @@ function Category() {
   let [categoryName, setCategoryName] = useState("");
   let [catIcon, setCatIcon] = useState();
   let [desc, setDesc] = useState("");
+
+  let msg = useRef();
   //-----
   // console.log(categoryName);
   // console.log(catIcon);
@@ -19,13 +21,18 @@ function Category() {
       "catdesp": `${desc}`
     })
       .then(() => {
+        msg.current.innerHTML = "Details Saved ✔"
         console.log("Category details saved ✔");
+        setTimeout(()=>{
+          msg.current.innerHTML=""
+        },3000)
       })
       .catch(() => {
         console.log("Error saving category details 😒");
       })
     e.preventDefault()
   }
+
   //-----
   const getImage = (e) => {
     let value = (e.target.files[0]);
@@ -58,7 +65,7 @@ function Category() {
           }}></textarea><br />
 
         <input type="submit" id={s.btn} onClick={submit} />
-
+        <div style={{color:'blue'}} ref={msg}></div>
       </form>
     </div>
   )
