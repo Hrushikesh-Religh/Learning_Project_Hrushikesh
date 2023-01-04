@@ -22,10 +22,10 @@ function Main() {
         const fetchAllCategory = async () => {
             try {
                 const res = await axios.get("http://localhost:3001/category")
-                console.log(res);
                 setCategory(res.data)
+                console.log("Category data fetched 👍");
             } catch (err) {
-                console.log(err);
+                console.log("Error fetching category data 😒");
             }
         }
         fetchAllCategory();
@@ -35,11 +35,11 @@ function Main() {
     useEffect(() => {
         axios.get("http://localhost:3001/product")
             .then((res) => {
-                console.log(res);
                 setProduct(res.data)
+                console.log("Product data fetched 👍");
             })
             .catch(() => {
-                console.log("Error 😒");
+                console.log("Error fetching products data 😒");
             })
     }, [])
     //-----
@@ -48,9 +48,10 @@ function Main() {
         axios.get(`http://localhost:3001/product/${search}`)
             .then((res) => {
                 setProduct(res.data)
+                console.log("Search data fetched 🔍");
             })
             .catch(() => {
-                console.log("Error 😒");
+                console.log("Error fetching search results 😒");
             })
     }, [search])
 
@@ -59,10 +60,10 @@ function Main() {
         axios.get(`http://localhost:3001/category/${id}`)
             .then((res) => {
                 setProduct(res.data)
-                console.log(product);
+                console.log("Product data fetched 👍");
             })
             .catch(() => {
-                console.log("Error 😒");
+                console.log("Error fetching specific category data 😒");
             })
     }
 
@@ -81,7 +82,7 @@ function Main() {
                                     setProduct(res.data)
                                 })
                                 .catch(() => {
-                                    console.log("Error 😒");
+                                    console.log("Error fetching search data 😒");
                                 })
                         }
                     }} />
@@ -96,10 +97,10 @@ function Main() {
                             axios.get(`http://localhost:3001/product`)
                                 .then((res) => {
                                     setProduct(res.data)
-                                    console.log(product);
+                                    console.log("Navbar data fetched 👍");
                                 })
                                 .catch(() => {
-                                    console.log("Error 😒");
+                                    console.log("Error fetching navbar data 😒");
                                 })
                         }}>Home</li>
                     {

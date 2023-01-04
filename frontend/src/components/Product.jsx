@@ -10,11 +10,10 @@ function Product() {
         axios.get("http://localhost:3001/category")
             .then((res) => {
                 setData(res.data)
-                console.log(res.data);
-                console.log("Data Received ✔");
+                console.log("Category details received ✔");
             })
             .catch(() => {
-                console.log("Error 😒");
+                console.log("Error fetching category details 😒");
             })
     }, [])
     //-----
@@ -26,11 +25,11 @@ function Product() {
     let [features, setFeatures] = useState("")
     //-----
 
-    console.log(prodName);
-    console.log(category);
-    console.log(image);
-    console.log(categoryDesp);
-    console.log(features);
+    // console.log(prodName);
+    // console.log(category);
+    // console.log(image);
+    // console.log(categoryDesp);
+    // console.log(features);
     //-----
 
     const getImageUrl = (e) => {
@@ -47,10 +46,10 @@ function Product() {
             "features": `${features}`
         })
             .then(() => {
-                console.log("Data saved ✔");
+                console.log("Product details saved ✔");
             })
             .catch(() => {
-                console.log("Error 😒");
+                console.log("Error saving product details 😒");
             })
         e.preventDefault()
     }

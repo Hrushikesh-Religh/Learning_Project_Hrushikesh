@@ -9,9 +9,9 @@ function Category() {
   let [catIcon, setCatIcon] = useState();
   let [desc, setDesc] = useState("");
   //-----
-  console.log(categoryName);
-  console.log(catIcon);
-  console.log(desc);
+  // console.log(categoryName);
+  // console.log(catIcon);
+  // console.log(desc);
   //-----
   function submit(e) {
     axios.post("http://localhost:3001/category", {
@@ -19,10 +19,10 @@ function Category() {
       "catdesp": `${desc}`
     })
       .then(() => {
-        console.log("Data saved ✔");
+        console.log("Category details saved ✔");
       })
       .catch(() => {
-        console.log("Error 😒");
+        console.log("Error saving category details 😒");
       })
     e.preventDefault()
   }
