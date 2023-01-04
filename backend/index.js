@@ -15,7 +15,7 @@ const db = mysql.createConnection({
 app.use(express.json())
 app.use(cors())
 
-
+// getting category data
 app.get("/category",(req,res)=>{
   const query = "select * from category"
   db.query(query,(err,data)=>{
@@ -24,6 +24,7 @@ app.get("/category",(req,res)=>{
   })
 })
 
+// posting category data
 app.post("/category",(req,res)=>{
   const query = "insert into category (`categoryname`,`catdesp`) values(?)"
   const values = [
@@ -36,7 +37,7 @@ app.post("/category",(req,res)=>{
   })
 })
 
-
+// getting product data
 app.get("/product",(req,res)=>{
   const query = "select * from product"
   db.query(query,(err,data)=>{
@@ -45,22 +46,7 @@ app.get("/product",(req,res)=>{
   })
 })
 
-app.get("/product/:search",(req,res)=>{
-  const query = `select * from product where productname like lower("${[req.params.search]}%")`
-  db.query(query,(err,data)=>{
-    if(err) return res.json(err)
-    return res.json(data)
-  })
-})
-
-app.get("/product/:category",(req,res)=>{
-  const query = "select * from product where category = ?"
-  db.query(query,[req.params.category],(err,data)=>{
-    if(err) return res.json(err)
-    return res.json(data)
-  })
-})
-
+// posting product data
 app.post("/product",(req,res)=>{
   const query = "insert into product (`productname`,`category`,`catdesp`,`features`) values(?)"
   const values = [
@@ -69,13 +55,30 @@ app.post("/product",(req,res)=>{
     req.body.catdesp,
     req.body.features
   ]
-  
   db.query(query,[values], (err,data)=>{
     if(err) return res.json(err)
     return res.json(data)
   })
 })
  
+// getting category specific product data
+app.get("/product/:category",(req,res)=>{
+  const query = "select * from product where category = ?"
+  db.query(query,[req.params.category],(err,data)=>{
+    if(err) return res.json(err)
+    return res.json(data)
+  })
+})
+
+// getting searched data
+app.get("/product/:search",(req,res)=>{
+  const query = `select * from product where productname like lower("${[req.params.search]}%")`
+  db.query(query,(err,data)=>{
+    if(err) return res.json(err)
+    return res.json(data)
+  })
+})
+
 app.listen(3001, () => {
   console.log("Server running successfully");
 });
