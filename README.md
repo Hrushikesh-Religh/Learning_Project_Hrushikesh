@@ -29,11 +29,11 @@ const db = mysql.createConnection({
   database:"YOUR_DATABASE_NAME"
 })
 ```
-+ Create two tables
++ Now create two tables in the database
   + category
   + products
 
-###### Steps to setup the Tables.
+## Steps to setup the Tables.
 + Execute Following queries in the Workbench
 > Creating category table
 ```
