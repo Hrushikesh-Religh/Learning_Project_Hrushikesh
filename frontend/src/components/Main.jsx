@@ -56,6 +56,16 @@ console.log(search);
                     })
     },[search])
 
+    function displayRelProd(id){
+        axios.get(`http://localhost:3001/category/${id}`)
+        .then((res) => {
+            setProduct(res.data)
+            console.log(product);
+        })
+        .catch(() => {
+            console.log("Error 😒");
+        })
+    }
     return (
         <div id = {s.mainSection}>
             {/* search  */}
@@ -95,16 +105,7 @@ console.log(search);
                         category?.map(category => {
                             return (
                                 <li key = {category.id}
-                                    onClick = { () => {
-                                        axios.get(`http://localhost:3001/product/${category.categoryname}`)
-                                            .then((res) => {
-                                                setProduct(res.data)
-                                                console.log(product);
-                                            })
-                                            .catch(() => {
-                                                console.log("Error 😒");
-                                            })
-                                    }}>{category.categoryname}</li>
+                                onClick = {()=>{displayRelProd(category.id)}}>{category.categoryname}</li>
                             )
                         })
                     }

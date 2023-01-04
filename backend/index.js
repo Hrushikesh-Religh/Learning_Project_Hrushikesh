@@ -71,9 +71,9 @@ app.post("/product",(req,res)=>{
 })
  
 // getting category specific product data
-app.get("/product/:category",(req,res)=>{
-  const query = "select * from product where category = ?"
-  db.query(query,[req.params.category],(err,data)=>{
+app.get("/category/:id",(req,res)=>{
+  const query = `select * from product where category in (select categoryname from category where id = ${[req.params.id]})`
+  db.query(query,(err,data)=>{
     if(err) return res.json(err)
     return res.json(data)
   })
