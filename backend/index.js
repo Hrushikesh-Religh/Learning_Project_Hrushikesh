@@ -69,11 +69,6 @@ app.post("/product",(req,res)=>{
     return res.json(data)
   })
 })
-
-//-----
-app.get("/",(req,res)=>{
-  res.json("backend")
-})
  
 app.listen(3001, () => {
   console.log("Server running successfully");
