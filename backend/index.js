@@ -30,7 +30,6 @@ app.post("/category",(req,res)=>{
     req.body.categoryname,
     req.body.catdesp
   ]
-  
   db.query(query,[values], (err,data)=>{
     if(err) return res.json(err)
     return res.json(data)
@@ -46,6 +45,14 @@ app.get("/product",(req,res)=>{
   })
 })
 
+app.get("/product/:search",(req,res)=>{
+  const query = `select * from product where productname like lower("${[req.params.search]}%")`
+  db.query(query,(err,data)=>{
+    if(err) return res.json(err)
+    return res.json(data)
+  })
+})
+
 app.get("/product/:category",(req,res)=>{
   const query = "select * from product where category = ?"
   db.query(query,[req.params.category],(err,data)=>{
@@ -53,7 +60,6 @@ app.get("/product/:category",(req,res)=>{
     return res.json(data)
   })
 })
-
 
 app.post("/product",(req,res)=>{
   const query = "insert into product (`productname`,`category`,`catdesp`,`features`) values(?)"

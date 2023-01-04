@@ -13,8 +13,10 @@ function Main() {
 
     let [category, setCategory] = useState([])
     let [product, setProduct] = useState([])
+    let [search, setSearch] = useState("") 
 //-----
-
+console.log(search);
+//-----
 //Fetching all the categories
     useEffect(() => {
         const fetchAllCategory = async () => {
@@ -28,7 +30,7 @@ function Main() {
         }
         fetchAllCategory();
     }, [])
-    
+
 //Fetching all the products
     useEffect(() => {
         const fetchAllProduct = async () => {
@@ -48,7 +50,18 @@ function Main() {
         <div id = {s.mainSection}>
             {/* search  */}
             <div id = {s.search}>
-                <input type = "text" placeholder = 'Search' /><i class = "fa-solid fa-magnifying-glass"></i>
+                <input type = "text" placeholder = 'Search' 
+                onChange={(e)=>{
+                    setSearch(e.target.value)
+                    axios.get(`http://localhost:3001/product/${search}`)
+                    .then((res)=>{
+                        setProduct(res.data)
+                    })
+                    .catch(()=>{
+                        console.log("Error 😒");
+                    })
+                }} />
+                <i class = "fa-solid fa-magnifying-glass"></i>
             </div>
 
             {/* navbar */}
@@ -62,7 +75,7 @@ function Main() {
                                     console.log(product);
                                 })
                                 .catch(() => {
-                                    console.log("Error");
+                                    console.log("Error 😒");
                                 })
                         }}>Home</li>
                     {
@@ -76,7 +89,7 @@ function Main() {
                                                 console.log(product);
                                             })
                                             .catch(() => {
-                                                console.log("Error");
+                                                console.log("Error 😒");
                                             })
                                     }}>{category.categoryname}</li>
                             )
