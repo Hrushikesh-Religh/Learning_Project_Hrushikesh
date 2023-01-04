@@ -29,3 +29,37 @@ const db = mysql.createConnection({
   database:"YOUR_DATABASE_NAME"
 })
 ```
++ Create two tables
+  + category
+  + products
+
+###### Steps to setup the Tables.
++ Execute Following queries in the Workbench
+> Creating category table
+```
+CREATE TABLE category (
+    id INT NOT NULL AUTO_INCREMENT,
+    categoryname VARCHAR(40),
+    catdesp VARCHAR(100)
+);
+```
+> Creating product table
+```
+CREATE TABLE product (
+    id INT NOT NULL AUTO_INCREMENT,
+    productname VARCHAR(40),
+    category VARCHAR(40),
+    catdesp VARCHAR(100),
+    features VARCHAR(100)
+);
+```
+>After installing necessary packages and setting up database 🤘, run the following commands 👇
++ Go to backend folder and inside that folder open terminal and execute the following command
+```
+node index.js
+```
++ Go to frontend folder and inside that folder open terminal and execute the following commands
+```
+npm start
+```
++ This command will open the browser with our app running 😊
