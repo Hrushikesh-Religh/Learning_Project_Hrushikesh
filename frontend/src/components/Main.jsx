@@ -108,10 +108,10 @@ function Main() {
                     {
                         product?.map(product => {
                             return (
-                                <span key = {product.id}>
-                                    Name: {product.productname} <br />
-                                    Desc: {product.catdesp} <br />
-                                    Features: {product.features}
+                                <span id={s.productCard} key = {product.id}>
+                                    <span><b>Name: </b>{product.productname}</span>
+                                    <span><b>Desc: </b>{product.catdesp}</span>
+                                    <span><b>Features: </b>{product.features}</span> 
                                 </span>
                             )
                         })

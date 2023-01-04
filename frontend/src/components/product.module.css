@@ -1,5 +1,5 @@
+/* product page */
 #product{
-    border: 1px solid black;
     padding-bottom: 10px;
     text-align: center;
     width: max-content;
@@ -8,35 +8,48 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
     padding: 10px;
+    background-color: cadetblue;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px;
+    /* border: 1px solid black; */
 }
+
+/* headings and sub headings */
 #product>h2{
-    border: 1px solid black;
     width: 220px;
     display: inline;
     padding: 5px;
     margin-top: 5px;
     background-color: burlywood;
     border-radius: 5px;
-    color: whitesmoke;
+    font-weight: 700;
+    box-shadow: 0px 0px 5px 0px;
+    /* border: 1px solid black; */
 }
+
+/* form section */
 #form{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 7px;
 }
+
+/* inputs */
 #productName{
     width: 220px;
     height: 30px;
     padding-left: 5px;
     border: 2px solid cadetblue;
+    border-radius: 5px;
     outline: none;
 }
 #selectCategory>select{
     border: 2px solid cadetblue;
     height: 30px;
+    border-radius: 5px;
 }
 #fileInput{
     border: 2px solid cadetblue;
@@ -47,7 +60,11 @@
 #form>textarea{
     border: 2px solid cadetblue;
     width: 220px;
+    border-radius: 5px;
+    padding: 2px 0px 0px 5px;
 }
+
+/* button */
 #form>#btn{
     width: 100px;
     height: 30px;
@@ -55,7 +72,16 @@
     border: 1px solid;
     border-radius: 5px;
     box-shadow: none;
+    transition: 0.3s;
+    font-weight: 700;
+    font-size: 18px;
 }
 #form>#btn:hover{
     box-shadow: 3px 3px 1px 0px black;
+    transition: 0.3s;
+    cursor: pointer;
+}
+#form>#btn:active{
+    transform: scale(0.85);
+    transition: 0.3s;
 }

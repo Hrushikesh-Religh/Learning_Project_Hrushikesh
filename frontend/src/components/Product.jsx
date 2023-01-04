@@ -59,7 +59,7 @@ function Product() {
     return (
         <div id = {s.product}>
 
-            <h2>Create Product</h2>
+            <h2>Create Product</h2><br />
 
             <form id = {s.form}>
 
@@ -71,7 +71,7 @@ function Product() {
                             setProdName(e.target.value)
                         }
                     } />
-                </span><br />
+                </span>
 
                 <div id = {s.selectCategory}>
 
@@ -93,23 +93,23 @@ function Product() {
                         }
                     </select>
 
-                </div><br />
+                </div>
 
                 <h3>Product Image: </h3>
                 <span>
                     <input type = "file" id = {s.fileInput} accept = "image/png, image/jpeg, image/ico"
                     onChange = {getImageUrl} />
-                </span><br />
+                </span>
 
                 <textarea name = "description" cols = "30" rows = "8" placeholder = 'Category Description' 
                 onChange={(e) => {
                     setCategoryDesp(e.target.value)
-                }}></textarea><br />
+                }}></textarea>
 
                 <textarea name = "features" cols = "30" rows = "8" placeholder = 'Product Features' 
                 onChange={(e) => {
                     setFeatures(e.target.value)
-                }}></textarea><br />
+                }}></textarea>
 
                 <input type = "submit" id = {s.btn} onClick = {submitForm} />
 
