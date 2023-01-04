@@ -45,6 +45,16 @@ console.log(search);
         fetchAllProduct();
     }, [])
 //-----
+    //Fetching data for search 
+    useEffect(()=>{
+        axios.get(`http://localhost:3001/product/${search}`)
+                    .then((res)=>{
+                        setProduct(res.data)
+                    })
+                    .catch(()=>{
+                        console.log("Error 😒");
+                    })
+    },[search])
 
     return (
         <div id = {s.mainSection}>
@@ -52,14 +62,8 @@ console.log(search);
             <div id = {s.search}>
                 <input type = "text" placeholder = 'Search' 
                 onChange={(e)=>{
+                    e.preventDefault();
                     setSearch(e.target.value)
-                    axios.get(`http://localhost:3001/product/${search}`)
-                    .then((res)=>{
-                        setProduct(res.data)
-                    })
-                    .catch(()=>{
-                        console.log("Error 😒");
-                    })
                     if(e.target.value === ""){
                         axios.get(`http://localhost:3001/product`)
                         .then((res)=>{

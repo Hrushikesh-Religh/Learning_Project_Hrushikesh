@@ -37,6 +37,15 @@ app.post("/category",(req,res)=>{
   })
 })
 
+// getting searched data
+app.get("/product/:search",(req,res)=>{
+  const query = `select * from product where productname like lower("${[req.params.search]}%")`
+  db.query(query,(err,data)=>{
+    if(err) return res.json(err)
+    return res.json(data)
+  })
+})
+
 // getting product data
 app.get("/product",(req,res)=>{
   const query = "select * from product"
@@ -65,15 +74,6 @@ app.post("/product",(req,res)=>{
 app.get("/product/:category",(req,res)=>{
   const query = "select * from product where category = ?"
   db.query(query,[req.params.category],(err,data)=>{
-    if(err) return res.json(err)
-    return res.json(data)
-  })
-})
-
-// getting searched data
-app.get("/product/:search",(req,res)=>{
-  const query = `select * from product where productname like lower("${[req.params.search]}%")`
-  db.query(query,(err,data)=>{
     if(err) return res.json(err)
     return res.json(data)
   })
