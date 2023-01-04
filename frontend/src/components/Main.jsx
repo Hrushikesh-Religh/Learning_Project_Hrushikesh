@@ -14,6 +14,7 @@ function Main() {
     let [category, setCategory] = useState([])
     let [product, setProduct] = useState([])
 //-----
+
 //Fetching all the categories
     useEffect(() => {
         const fetchAllCategory = async () => {
@@ -27,6 +28,7 @@ function Main() {
         }
         fetchAllCategory();
     }, [])
+    
 //Fetching all the products
     useEffect(() => {
         const fetchAllProduct = async () => {
