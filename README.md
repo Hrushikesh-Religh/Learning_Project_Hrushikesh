@@ -24,8 +24,8 @@ npm install react-responsive-carousel
 ```
 const db = mysql.createConnection({
   host:"localhost",
-  user:"**YOUR_USER_NAME**",
-  password:"**YOUR_PASSWORD**",
-  database:"**YOUR_DATABASE_NAME**"
+  user:"YOUR_USER_NAME",
+  password:"YOUR_PASSWORD",
+  database:"YOUR_DATABASE_NAME"
 })
 ```
