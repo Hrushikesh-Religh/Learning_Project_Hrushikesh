@@ -1,10 +1,10 @@
-#display{
+#display {
     display: flex;
     top: 0;
 }
 
-#sideBar{
-    position:absolute;
+#sideBar {
+    position: absolute;
     height: 100vh;
     width: 10%;
     display: flex;
@@ -20,7 +20,7 @@
     /* border: 1px solid; */
 }
 
-#sideBar>a{
+#sideBar>a {
     color: black;
     font-size: 20px;
     font-weight: 700;
@@ -31,11 +31,13 @@
     box-shadow: none;
     transition: 0.3s;
 }
-#sideBar>a:hover{
+
+#sideBar>a:hover {
     box-shadow: 3px 3px 1px 0px black;
     transition: 0.3s;
 }
-#sideBar>a:active{
+
+#sideBar>a:active {
     transform: scale(0.90);
     transition: 0.2s;
 }

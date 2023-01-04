@@ -7,13 +7,13 @@ import Product from './components/Product';
 //-----
 function App() {
   return (
-    <div className = "App">
+    <div className="App">
       <BrowserRouter>
         <Display />
         <Routes>
-          <Route element = {<Main />} path = '/main' />
-          <Route element = {<Product />} path = '/product' />
-          <Route element = {<Category />} path = '/category' />
+          <Route element={<Main />} path='/main' />
+          <Route element={<Product />} path='/product' />
+          <Route element={<Category />} path='/category' />
         </Routes>
       </BrowserRouter>
     </div>

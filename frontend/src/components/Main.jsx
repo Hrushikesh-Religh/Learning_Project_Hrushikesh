@@ -13,11 +13,11 @@ function Main() {
 
     let [category, setCategory] = useState([])
     let [product, setProduct] = useState([])
-    let [search, setSearch] = useState("") 
-//-----
-console.log(search);
-//-----
-//Fetching all the categories
+    let [search, setSearch] = useState("")
+    //-----
+    console.log(search);
+    //-----
+    //Fetching all the categories
     useEffect(() => {
         const fetchAllCategory = async () => {
             try {
@@ -31,67 +31,68 @@ console.log(search);
         fetchAllCategory();
     }, [])
 
-//Fetching all the products
+    //Fetching all the products
     useEffect(() => {
-        const fetchAllProduct = async () => {
-            try {
-                const res = await axios.get("http://localhost:3001/product")
+        axios.get("http://localhost:3001/product")
+            .then((res) => {
                 console.log(res);
                 setProduct(res.data)
-            } catch (err) {
-                console.log(err);
-            }
-        }
-        fetchAllProduct();
+            })
+            .catch(() => {
+                console.log("Error 😒");
+            })
     }, [])
-//-----
+    //-----
     //Fetching data for search 
-    useEffect(()=>{
+    useEffect(() => {
         axios.get(`http://localhost:3001/product/${search}`)
-                    .then((res)=>{
-                        setProduct(res.data)
-                    })
-                    .catch(()=>{
-                        console.log("Error 😒");
-                    })
-    },[search])
+            .then((res) => {
+                setProduct(res.data)
+            })
+            .catch(() => {
+                console.log("Error 😒");
+            })
+    }, [search])
 
-    function displayRelProd(id){
+    //Display products specific to category
+    function displayRelProd(id) {
         axios.get(`http://localhost:3001/category/${id}`)
-        .then((res) => {
-            setProduct(res.data)
-            console.log(product);
-        })
-        .catch(() => {
-            console.log("Error 😒");
-        })
+            .then((res) => {
+                setProduct(res.data)
+                console.log(product);
+            })
+            .catch(() => {
+                console.log("Error 😒");
+            })
     }
+
+    //-----
     return (
-        <div id = {s.mainSection}>
+        <div id={s.mainSection}>
             {/* search  */}
-            <div id = {s.search}>
-                <input type = "text" placeholder = 'Search' 
-                onChange={(e)=>{
-                    e.preventDefault();
-                    setSearch(e.target.value)
-                    if(e.target.value === ""){
-                        axios.get(`http://localhost:3001/product`)
-                        .then((res)=>{
-                            setProduct(res.data)
-                        })
-                        .catch(()=>{
-                            console.log("Error 😒");
-                        }) 
-                    }
-                }} />
-                <i class = "fa-solid fa-magnifying-glass"></i>
+            <div id={s.search}>
+                <input type="text" placeholder='Search'
+                    onChange={(e) => {
+                        e.preventDefault();
+                        setSearch(e.target.value)
+                        if (e.target.value === "") {
+                            axios.get(`http://localhost:3001/product`)
+                                .then((res) => {
+                                    setProduct(res.data)
+                                })
+                                .catch(() => {
+                                    console.log("Error 😒");
+                                })
+                        }
+                    }} />
+                <i class="fa-solid fa-magnifying-glass"></i>
             </div>
 
             {/* navbar */}
-            <div id = {s.navbar}>
+            <div id={s.navbar}>
                 <ul>
-                    <li onClick = {
-                            () => {
+                    <li onClick={
+                        () => {
                             axios.get(`http://localhost:3001/product`)
                                 .then((res) => {
                                     setProduct(res.data)
@@ -104,8 +105,8 @@ console.log(search);
                     {
                         category?.map(category => {
                             return (
-                                <li key = {category.id}
-                                onClick = {()=>{displayRelProd(category.id)}}>{category.categoryname}</li>
+                                <li key={category.id}
+                                    onClick={() => { displayRelProd(category.id) }}>{category.categoryname}</li>
                             )
                         })
                     }
@@ -113,34 +114,34 @@ console.log(search);
             </div>
 
             {/* image carousel */}
-            <Carousel autoPlay interval = "3000" transitionTime = "300" infiniteLoop showStatus = {false} showThumbs = {false} >
+            <Carousel autoPlay interval="3000" transitionTime="300" infiniteLoop showStatus={false} showThumbs={false} >
                 <div>
-                    <img src = {img1} alt = "img1" className = {s.slideimg} />
+                    <img src={img1} alt="img1" className={s.slideimg} />
                 </div>
                 <div>
-                    <img src = {img2} alt = "img1" className = {s.slideimg} />
+                    <img src={img2} alt="img1" className={s.slideimg} />
                 </div>
                 <div>
-                    <img src = {img3} alt = "img1" className = {s.slideimg} />
+                    <img src={img3} alt="img1" className={s.slideimg} />
                 </div>
                 <div>
-                    <img src = {img4} alt = "img1" className = {s.slideimg} />
+                    <img src={img4} alt="img1" className={s.slideimg} />
                 </div>
                 <div>
-                    <img src = {img5} alt = "img1" className = {s.slideimg} />
+                    <img src={img5} alt="img1" className={s.slideimg} />
                 </div>
             </Carousel>
 
             {/* displaying products */}
-            <div id = {s.product}>
-                <div id = {s.productSpan}>
+            <div id={s.product}>
+                <div id={s.productSpan}>
                     {
                         product?.map(product => {
                             return (
-                                <span id={s.productCard} key = {product.id}>
+                                <span id={s.productCard} key={product.id}>
                                     <span><b>Name: </b>{product.productname}</span>
                                     <span><b>Desc: </b>{product.catdesp}</span>
-                                    <span><b>Features: </b>{product.features}</span> 
+                                    <span><b>Features: </b>{product.features}</span>
                                 </span>
                             )
                         })
@@ -149,7 +150,7 @@ console.log(search);
             </div>
 
             {/* footer */}
-            <footer id = {s.footer}>
+            <footer id={s.footer}>
                 Religh Technologies - Learning Projcet
             </footer>
         </div>

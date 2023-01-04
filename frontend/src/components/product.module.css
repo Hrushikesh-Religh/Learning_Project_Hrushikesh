@@ -1,5 +1,5 @@
 /* product page */
-#product{
+#product {
     padding-bottom: 10px;
     text-align: center;
     width: max-content;
@@ -16,7 +16,7 @@
 }
 
 /* headings and sub headings */
-#product>h2{
+#product>h2 {
     width: 220px;
     display: inline;
     padding: 5px;
@@ -29,7 +29,7 @@
 }
 
 /* form section */
-#form{
+#form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,7 +38,7 @@
 }
 
 /* inputs */
-#productName{
+#productName {
     width: 220px;
     height: 30px;
     padding-left: 5px;
@@ -46,18 +46,21 @@
     border-radius: 5px;
     outline: none;
 }
-#selectCategory>select{
+
+#selectCategory>select {
     border: 2px solid cadetblue;
     height: 30px;
     border-radius: 5px;
 }
-#fileInput{
+
+#fileInput {
     border: 2px solid cadetblue;
     padding: 3px;
     width: 220px;
     height: 30px;
 }
-#form>textarea{
+
+#form>textarea {
     border: 2px solid cadetblue;
     width: 220px;
     border-radius: 5px;
@@ -65,7 +68,7 @@
 }
 
 /* button */
-#form>#btn{
+#form>#btn {
     width: 100px;
     height: 30px;
     background-color: burlywood;
@@ -76,12 +79,14 @@
     font-weight: 700;
     font-size: 18px;
 }
-#form>#btn:hover{
+
+#form>#btn:hover {
     box-shadow: 3px 3px 1px 0px black;
     transition: 0.3s;
     cursor: pointer;
 }
-#form>#btn:active{
+
+#form>#btn:active {
     transform: scale(0.85);
     transition: 0.3s;
 }

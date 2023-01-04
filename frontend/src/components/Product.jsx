@@ -8,15 +8,15 @@ function Product() {
 
     useEffect(() => {
         axios.get("http://localhost:3001/category")
-        .then((res) => {
-            setData(res.data)
-            console.log(res.data);
-            console.log("Data Received ✔");
-        })
-        .catch(() => {
-            console.log("Error 😒");
-        })
-    },[])
+            .then((res) => {
+                setData(res.data)
+                console.log(res.data);
+                console.log("Data Received ✔");
+            })
+            .catch(() => {
+                console.log("Error 😒");
+            })
+    }, [])
     //-----
 
     let [prodName, setProdName] = useState("");
@@ -41,51 +41,51 @@ function Product() {
 
     function submitForm(e) {
         axios.post("http://localhost:3001/product", {
-            "productname":`${prodName}`,
-            "category":`${category}`,
-            "catdesp":`${categoryDesp}`,
-            "features":`${features}`
+            "productname": `${prodName}`,
+            "category": `${category}`,
+            "catdesp": `${categoryDesp}`,
+            "features": `${features}`
         })
-        .then(() => {
-            console.log("Data saved ✔");
-        })
-        .catch(() => {
-            console.log("Error 😒");
-        })
+            .then(() => {
+                console.log("Data saved ✔");
+            })
+            .catch(() => {
+                console.log("Error 😒");
+            })
         e.preventDefault()
     }
     //-----
 
     return (
-        <div id = {s.product}>
+        <div id={s.product}>
 
             <h2>Create Product</h2><br />
 
-            <form id = {s.form}>
+            <form id={s.form}>
 
                 <h3>Product Name:</h3>
                 <span>
-                    <input type = "text" placeholder = 'Name' id = {s.productName}
-                    onChange = {
-                        (e) => {
-                            setProdName(e.target.value)
-                        }
-                    } />
+                    <input type="text" placeholder='Name' id={s.productName}
+                        onChange={
+                            (e) => {
+                                setProdName(e.target.value)
+                            }
+                        } />
                 </span>
 
-                <div id = {s.selectCategory}>
+                <div id={s.selectCategory}>
 
-                    <h3>Category: </h3> 
+                    <h3>Category: </h3>
 
-                    <select name = "Category"
-                    onChange={(e) => {
-                        setCategory(e.target.value)
-                    }}>
+                    <select name="Category"
+                        onChange={(e) => {
+                            setCategory(e.target.value)
+                        }}>
                         <option>Select</option>
-                         {
+                        {
                             data?.map((data) => {
-                                return(
-                                    <option key = {data.id}>
+                                return (
+                                    <option key={data.id}>
                                         {data.categoryname}
                                     </option>
                                 )
@@ -97,21 +97,21 @@ function Product() {
 
                 <h3>Product Image: </h3>
                 <span>
-                    <input type = "file" id = {s.fileInput} accept = "image/png, image/jpeg, image/ico"
-                    onChange = {getImageUrl} />
+                    <input type="file" id={s.fileInput} accept="image/png, image/jpeg, image/ico"
+                        onChange={getImageUrl} />
                 </span>
 
-                <textarea name = "description" cols = "30" rows = "8" placeholder = 'Category Description' 
-                onChange={(e) => {
-                    setCategoryDesp(e.target.value)
-                }}></textarea>
+                <textarea name="description" cols="30" rows="8" placeholder='Category Description'
+                    onChange={(e) => {
+                        setCategoryDesp(e.target.value)
+                    }}></textarea>
 
-                <textarea name = "features" cols = "30" rows = "8" placeholder = 'Product Features' 
-                onChange={(e) => {
-                    setFeatures(e.target.value)
-                }}></textarea>
+                <textarea name="features" cols="30" rows="8" placeholder='Product Features'
+                    onChange={(e) => {
+                        setFeatures(e.target.value)
+                    }}></textarea>
 
-                <input type = "submit" id = {s.btn} onClick = {submitForm} />
+                <input type="submit" id={s.btn} onClick={submitForm} />
 
             </form>
         </div>

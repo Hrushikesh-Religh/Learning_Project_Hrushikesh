@@ -1,5 +1,5 @@
 /* category page */
-#category{
+#category {
     padding-bottom: 10px;
     width: max-content;
     position: relative;
@@ -17,7 +17,7 @@
 }
 
 /* heading and sub headings */
-#category>h2{
+#category>h2 {
     width: 220px;
     display: inline;
     padding: 5px;
@@ -29,12 +29,13 @@
     box-shadow: 0px 0px 5px 0px;
     /* border: 1px solid black; */
 }
-#category>h3{
+
+#category>h3 {
     font-weight: 400;
 }
 
 /* form section */
-#form{
+#form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -42,7 +43,7 @@
 }
 
 /* inputs */
-#categoryName{
+#categoryName {
     width: 220px;
     height: 30px;
     padding-left: 5px;
@@ -50,13 +51,15 @@
     outline: none;
     border-radius: 5px;
 }
-#fileInput{
+
+#fileInput {
     border: 2px solid cadetblue;
     padding: 3px;
     width: 220px;
     height: 30px;
 }
-#form>textarea{
+
+#form>textarea {
     border: 2px solid cadetblue;
     width: 220px;
     border-radius: 5px;
@@ -64,7 +67,7 @@
 }
 
 /* button */
-#form>#btn{
+#form>#btn {
     width: 100px;
     height: 30px;
     background-color: burlywood;
@@ -75,12 +78,14 @@
     font-size: 18px;
     font-weight: 700;
 }
-#form>#btn:hover{
+
+#form>#btn:hover {
     box-shadow: 3px 3px 1px 0px black;
     transition: 0.3s;
     cursor: pointer;
 }
-#form>#btn:active{
+
+#form>#btn:active {
     transform: scale(0.85);
     transition: 0.3s;
 }
