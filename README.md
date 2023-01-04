@@ -10,6 +10,7 @@ First learning project at Religh Technologies!
 ## Steps to run this project 👍
 + Go to backend folder and inside that folder open terminal and execute the following commands.
 ```
+npm install react-scripts
 npm install express mysql2 cors
 ```
 + Go to frontend folder and inside that folder open terminal and execute the following commands.
