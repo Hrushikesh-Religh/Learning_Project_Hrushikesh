@@ -123,11 +123,7 @@
 /* footer section */
 #footer {
     position: absolute;
-<<<<<<< Updated upstream
     right: 25%;
-=======
-    right: 5px;
->>>>>>> Stashed changes
     bottom: 0;
     width: 50%;
     height: 40px;
