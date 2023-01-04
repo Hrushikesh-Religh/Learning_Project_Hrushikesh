@@ -60,6 +60,15 @@ console.log(search);
                     .catch(()=>{
                         console.log("Error 😒");
                     })
+                    if(e.target.value === ""){
+                        axios.get(`http://localhost:3001/product`)
+                        .then((res)=>{
+                            setProduct(res.data)
+                        })
+                        .catch(()=>{
+                            console.log("Error 😒");
+                        }) 
+                    }
                 }} />
                 <i class = "fa-solid fa-magnifying-glass"></i>
             </div>
