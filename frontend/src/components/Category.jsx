@@ -12,8 +12,8 @@ function Category() {
   let msg = useRef();
   //-----
   // console.log(categoryName);
-  // console.log(catIcon);
   // console.log(desc);
+  console.log(catIcon);
   //-----
   function submit(e) {
     axios.post("http://localhost:3001/category", {

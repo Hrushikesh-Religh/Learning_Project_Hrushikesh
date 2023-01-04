@@ -115,23 +115,25 @@ function Main() {
             </div>
 
             {/* image carousel */}
-            <Carousel autoPlay interval="3000" transitionTime="300" infiniteLoop showStatus={false} showThumbs={false} >
-                <div>
-                    <img src={img1} alt="img1" className={s.slideimg} />
-                </div>
-                <div>
-                    <img src={img2} alt="img1" className={s.slideimg} />
-                </div>
-                <div>
-                    <img src={img3} alt="img1" className={s.slideimg} />
-                </div>
-                <div>
-                    <img src={img4} alt="img1" className={s.slideimg} />
-                </div>
-                <div>
-                    <img src={img5} alt="img1" className={s.slideimg} />
-                </div>
-            </Carousel>
+            <div id={s.carousel}>
+                <Carousel autoPlay interval="3000" transitionTime="300" infiniteLoop showStatus={false} showThumbs={false} >
+                    <div>
+                        <img src={img1} alt="img1" className={s.slideimg} />
+                    </div>
+                    <div>
+                        <img src={img2} alt="img1" className={s.slideimg} />
+                    </div>
+                    <div>
+                        <img src={img3} alt="img1" className={s.slideimg} />
+                    </div>
+                    <div>
+                        <img src={img4} alt="img1" className={s.slideimg} />
+                    </div>
+                    <div>
+                        <img src={img5} alt="img1" className={s.slideimg} />
+                    </div>
+                </Carousel>
+            </div>
 
             {/* displaying products */}
             <div id={s.product}>

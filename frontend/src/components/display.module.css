@@ -6,7 +6,7 @@
 #sideBar {
     position: absolute;
     height: 100vh;
-    width: 10%;
+    width: 10vw;
     top: 0;
     left: 0;
     display: flex;

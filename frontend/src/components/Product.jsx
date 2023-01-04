@@ -27,9 +27,9 @@ function Product() {
 
     // console.log(prodName);
     // console.log(category);
-    // console.log(image);
     // console.log(categoryDesp);
     // console.log(features);
+    console.log(image);
     //-----
 
     const getImageUrl = (e) => {

@@ -1,7 +1,7 @@
 /* main section */
 #mainSection {
-    width: 89%;
-    height: 100%;
+    width: 89vw;
+    height: 100vh;
     position: fixed;
     right: 5px;
     top: 0;
@@ -14,6 +14,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
+    height: 5vh;
 }
 
 #search>input {
@@ -55,17 +56,27 @@
     border-radius: 5px;
     font-weight: 700;
     box-shadow: 0px 0px 4px 0px;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     /* border: 1px solid; */
 }
 
 #navbar>ul {
     display: flex;
+    align-items: center;
+    justify-items: center;
     gap: 10px;
     padding: 8px;
+    height: 4vh;
 }
 
 #navbar>ul>li {
     padding: 5px;
+    height: 4vh;
+    display: flex;
+    align-items: center;
     background-color: burlywood;
     border-radius: 5px;
     box-shadow: none;
@@ -85,16 +96,20 @@
 }
 
 /* carousel */
+#carousel {
+    height: 30vh;
+}
+
 .slideimg {
     width: 100%;
-    height: 170px;
+    height: 30vh;
     border-radius: 5px;
 }
 
 /* product card */
 #product {
     margin-top: 5px;
-    height: 50%;
+    height: 48vh;
     overflow-y: scroll;
 }
 
@@ -126,7 +141,7 @@
     right: 25%;
     bottom: 0;
     width: 50%;
-    height: 40px;
+    height: 5vh;
     border-radius: 5px;
     display: flex;
     align-items: center;
