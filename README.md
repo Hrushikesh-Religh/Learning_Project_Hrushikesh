@@ -38,7 +38,7 @@ const db = mysql.createConnection({
 > Creating category table
 ```
 CREATE TABLE category (
-    id INT NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     categoryname VARCHAR(40),
     catdesp VARCHAR(100)
 );
@@ -46,7 +46,7 @@ CREATE TABLE category (
 > Creating product table
 ```
 CREATE TABLE product (
-    id INT NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     productname VARCHAR(40),
     category VARCHAR(40),
     catdesp VARCHAR(100),

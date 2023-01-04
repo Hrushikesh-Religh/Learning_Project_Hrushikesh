@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import s from './display.module.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 //-----
 function Display() {
+
+  let nav = useNavigate();
+  useEffect(()=>{
+    nav("/main");
+    console.log("Loaded");
+  },[nav])
+
   return (
     <div id={s.display}>
       <div id={s.sideBar}>

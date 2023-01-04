@@ -94,7 +94,7 @@
 /* product card */
 #product {
     margin-top: 5px;
-    height: 47vh;
+    height: 50%;
     overflow-y: scroll;
 }
 
@@ -123,9 +123,9 @@
 /* footer section */
 #footer {
     position: absolute;
-    right: 6px;
+    right: 25%;
     bottom: 0;
-    width: 100%;
+    width: 50%;
     height: 40px;
     border-radius: 5px;
     display: flex;
