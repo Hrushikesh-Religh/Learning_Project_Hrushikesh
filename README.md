@@ -1,13 +1,13 @@
 # Learning_Project_Hrushikesh
 First learning project at Religh Technologies!
 
-###### Requirements needed to run this project
+## Requirements needed to run this project
 + Node JS
 + React JS
 + MySQL Server and Workbench
 + VS Code (optional)
 
-###### Steps to run this project
+## Steps to run this project
 + Go to backend folder and inside that folder open terminal and execute the following commands
 ```
 npm i express mysql2 cors
