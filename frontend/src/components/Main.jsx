@@ -5,8 +5,8 @@ import img2 from '../images/2.jpg'
 import img3 from '../images/3.jpg'
 import img4 from '../images/4.jpg'
 import img5 from '../images/5.jpg'
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import axios from 'axios'
 //-----
 function Main() {
