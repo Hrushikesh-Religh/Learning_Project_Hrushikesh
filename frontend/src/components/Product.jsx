@@ -104,12 +104,12 @@ function Product() {
                         onChange={getImageUrl} />
                 </span>
 
-                <textarea name="description" cols="30" rows="8" placeholder='Category Description'
+                <textarea name="description" cols="30" rows="7" placeholder='Category Description'
                     onChange={(e) => {
                         setCategoryDesp(e.target.value)
                     }}></textarea>
 
-                <textarea name="features" cols="30" rows="8" placeholder='Product Features'
+                <textarea name="features" cols="30" rows="7" placeholder='Product Features'
                     onChange={(e) => {
                         setFeatures(e.target.value)
                     }}></textarea>
