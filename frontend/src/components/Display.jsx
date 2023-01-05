@@ -8,7 +8,7 @@ function Display() {
   useEffect(()=>{
     nav("/main");
     console.log("Loaded");
-  },[nav])
+  },[])
 
   return (
     <div id={s.display}>
