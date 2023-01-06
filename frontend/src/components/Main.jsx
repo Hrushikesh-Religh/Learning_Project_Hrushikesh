@@ -154,7 +154,7 @@ function Main() {
 
             {/* footer */}
             <footer id={s.footer}>
-                Religh Technologies - Learning Projcet
+                Religh Technologies - Learning Project
             </footer>
         </div>
     )
