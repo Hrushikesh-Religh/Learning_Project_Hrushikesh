@@ -13,9 +13,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
-    background-color: cadetblue;
-    gap: 50px;
+    /* border-radius: 5px; */
+    /* background-color: cadetblue; */
+    gap: 10px;
     padding: 10px;
     z-index: 1;
     box-shadow: 0px 0px 5px 0px;
@@ -23,15 +23,21 @@
 }
 
 #sideBar>a {
+    width: 100%;
+    position: relative;
     color: black;
     font-size: 20px;
     font-weight: 700;
-    border: 1px solid transparent;
-    padding: 10px;
-    background-color: burlywood;
-    border-radius: 5px;
+    border: 1px solid black;
+    padding: 3vh;
+    display: flex;
+    justify-content: center;
+    background-color: cadetblue;
+    /* border-radius: 5px; */
     box-shadow: none;
     transition: 0.3s;
+    z-index: 2;
+    /* box-shadow: 0px 0px 5px 0px black; */
 }
 
 #sideBar>a:hover {

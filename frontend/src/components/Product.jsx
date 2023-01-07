@@ -6,6 +6,7 @@ function Product() {
 
     let [data, setData] = useState()
     let msg = useRef()
+
     useEffect(() => {
         axios.get("http://localhost:3001/category")
             .then((res) => {
@@ -20,7 +21,7 @@ function Product() {
 
     let [prodName, setProdName] = useState("");
     let [category, setCategory] = useState("");
-    let [image, setImage] = useState();
+    let [image, setImage] = useState("");
     let [categoryDesp, setCategoryDesp] = useState("");
     let [features, setFeatures] = useState("")
     //-----
@@ -29,40 +30,48 @@ function Product() {
     // console.log(category);
     // console.log(categoryDesp);
     // console.log(features);
-    console.log(image);
+    // console.log(image);
     //-----
-
-    const getImageUrl = (e) => {
-        let value = (e.target.files[0]);
-        setImage([value]);
-    }
     //-----
-
+    
     function submitForm(e) {
-        axios.post("http://localhost:3001/product", {
-            "productname": `${prodName}`,
-            "category": `${category}`,
-            "catdesp": `${categoryDesp}`,
-            "features": `${features}`
-        })
-            .then(() => {
-                msg.current.innerHTML = "Details Saved ✔"
-                console.log("Product details saved ✔");
-                setTimeout(()=>{
-                    msg.current.innerHTML=""
-                  },3000)
-            })
-            .catch(() => {
-                console.log("Error saving product details 😒");
-            })
         e.preventDefault()
+        if(prodName === "" | category === "" | image === "" | categoryDesp === "" | features === ""){
+            msg.current.style = "color: red"
+            msg.current.innerHTML = "Fill all the details! 🤨"
+            setTimeout(()=>{
+              msg.current.style = "border: none"
+              msg.current.innerHTML=""
+            },3000)
+        }
+        else{
+            axios.post("http://localhost:3001/product", {
+                "productname": `${prodName}`,
+                "category": `${category}`,
+                "catdesp": `${categoryDesp}`,
+                "features": `${features}`,
+                "image":`${image}`
+            })
+                .then(() => {
+                    msg.current.style = 'color: green'
+                    msg.current.innerHTML = "Details Saved! ✔"
+                    console.log("Category details saved ✔");
+                    setTimeout(()=>{
+                      msg.current.innerHTML=""
+                      msg.current.style = "border: none"
+                    },3000)
+                })
+                .catch(() => {
+                    console.log("Error saving product details 😒");
+                })
+        }
     }
     //-----
 
     return (
         <div id={s.product}>
 
-            <h2>Create Product</h2><br />
+            <h2>Create Product</h2>
 
             <form id={s.form}>
 
@@ -95,13 +104,16 @@ function Product() {
                             })
                         }
                     </select>
-
                 </div>
 
                 <h3>Product Image: </h3>
                 <span>
-                    <input type="file" id={s.fileInput} accept="image/png, image/jpeg, image/ico"
-                        onChange={getImageUrl} />
+                    <input type="file" id={s.fileInput} accept="image/*"
+                        onChange={(e)=>{
+                            let path = e.target.value
+                            path = path.replace(/^.*\\/, "")
+                            setImage(path)
+                        }} />
                 </span>
 
                 <textarea name="description" cols="30" rows="7" placeholder='Category Description'
@@ -115,7 +127,7 @@ function Product() {
                     }}></textarea>
 
                 <input type="submit" id={s.btn} onClick={submitForm} />
-                <div style={{color:'blue'}} ref={msg}></div>
+                <div id={s.msg} ref={msg}></div>
             </form>
         </div>
     )

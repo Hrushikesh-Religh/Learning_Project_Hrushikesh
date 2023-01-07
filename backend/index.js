@@ -26,10 +26,11 @@ app.get("/category",(req,res)=>{
 
 // posting category data
 app.post("/category",(req,res)=>{
-  const query = "insert into category (`categoryname`,`catdesp`) values(?)"
+  const query = "insert into category (`categoryname`,`catdesp`,`image`) values(?)"
   const values = [
     req.body.categoryname,
-    req.body.catdesp
+    req.body.catdesp,
+    req.body.image
   ]
   db.query(query,[values], (err,data)=>{
     if(err) return res.json(err)
@@ -39,7 +40,7 @@ app.post("/category",(req,res)=>{
 
 // getting searched data
 app.get("/product/:search",(req,res)=>{
-  const query = `select * from product where productname like lower("${[req.params.search]}%")`
+  const query = `select * from product where productname like lower("%${[req.params.search]}%")`
   db.query(query,(err,data)=>{
     if(err) return res.json(err)
     return res.json(data)
@@ -57,12 +58,13 @@ app.get("/product",(req,res)=>{
 
 // posting product data
 app.post("/product",(req,res)=>{
-  const query = "insert into product (`productname`,`category`,`catdesp`,`features`) values(?)"
+  const query = "insert into product (`productname`,`category`,`catdesp`,`features`,`image`) values(?)"
   const values = [
     req.body.productname,
     req.body.category,
     req.body.catdesp,
-    req.body.features
+    req.body.features,
+    req.body.image
   ]
   db.query(query,[values], (err,data)=>{
     if(err) return res.json(err)

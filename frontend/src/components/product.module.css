@@ -1,30 +1,33 @@
 /* product page */
 #product {
-    padding-bottom: 10px;
-    text-align: center;
+    /* padding-bottom: 10px; */
     width: max-content;
+    position: relative;
     margin: .5% auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10px;
-    background-color: cadetblue;
-    border-radius: 5px;
+    /* gap: 10px; */
+    /* padding: 10px; */
+    /* background-color: cadetblue; */
+    /* border-radius: 5px; */
     box-shadow: 0px 0px 5px 0px;
-    /* border: 1px solid black; */
+    border: 1px solid black;
 }
 
 /* headings and sub headings */
 #product>h2 {
-    width: 220px;
+    width: 100%;
     display: inline;
     padding: 5px;
-    margin-top: 5px;
-    background-color: burlywood;
-    border-radius: 5px;
+    background-color: cadetblue;
+    /* border-radius: 5px; */
+    color: white;
     font-weight: 700;
-    box-shadow: 0px 0px 5px 0px;
+    border-bottom: 1px solid black;
+    text-align: center;
+    /* box-shadow: 0px 0px 5px 0px; */
     /* border: 1px solid black; */
 }
 
@@ -35,6 +38,7 @@
     justify-content: center;
     align-items: center;
     gap: 7px;
+    padding: 10px;
 }
 
 /* inputs */
@@ -43,14 +47,22 @@
     height: 30px;
     padding-left: 5px;
     border: 2px solid cadetblue;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     outline: none;
 }
 
+#selectCategory{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+}
 #selectCategory>select {
     border: 2px solid cadetblue;
     height: 30px;
-    border-radius: 5px;
+    outline: none;
+    /* border-radius: 5px; */
 }
 
 #fileInput {
@@ -63,17 +75,17 @@
 #form>textarea {
     border: 2px solid cadetblue;
     width: 220px;
-    border-radius: 5px;
+    /* border-radius: 5px; */
+    outline: none;
     padding: 2px 0px 0px 5px;
 }
-
 /* button */
 #form>#btn {
     width: 100px;
     height: 30px;
-    background-color: burlywood;
+    background-color: cadetblue;
     border: 1px solid;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     box-shadow: none;
     transition: 0.3s;
     font-weight: 700;
@@ -89,4 +101,8 @@
 #form>#btn:active {
     transform: scale(0.85);
     transition: 0.3s;
+}
+#msg{
+    border: 1px solid;
+    padding: 1px 5px 1px 5px;
 }

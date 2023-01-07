@@ -21,7 +21,7 @@
     width: 300px;
     height: 30px;
     padding-left: 5px;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     outline: none;
     border: none;
 }
@@ -32,7 +32,7 @@
 
 #search>i {
     padding: 7px 10px 7px 10px;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     background-color: cadetblue;
     color: white;
     /* border: 2px solid black; */
@@ -52,15 +52,21 @@
 /* navbar */
 #navbar {
     margin-bottom: 10px;
-    background-color: cadetblue;
-    border-radius: 5px;
+    background-color: transparent;
+    /* border-radius: 5px; */
     font-weight: 700;
-    box-shadow: 0px 0px 4px 0px;
+    /* box-shadow: 1px 1px 4px 0px; */
     height: 7vh;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    /* border: 1px solid; */
+    border: 1px solid black;
+    overflow-x: scroll;
+}
+#navbar::-webkit-scrollbar{
+    background: transparent;
+    height: 0;
+    width: 0;
 }
 
 #navbar>ul {
@@ -73,15 +79,17 @@
 }
 
 #navbar>ul>li {
+    width: max-content;
     padding: 5px;
-    height: 4vh;
+    height: 4.5vh;
+    font-size: 2.2vh;
     display: flex;
     align-items: center;
-    background-color: burlywood;
-    border-radius: 5px;
+    background-color: cadetblue;
+    /* border-radius: 5px; */
     box-shadow: none;
     transition: 0.3s;
-    /* border: 1px solid; */
+    border: 1px solid;
 }
 
 #navbar>ul>li:hover {
@@ -103,7 +111,7 @@
 .slideimg {
     width: 100%;
     height: 30vh;
-    border-radius: 5px;
+    /* border-radius: 5px; */
 }
 
 /* product card */
@@ -112,7 +120,10 @@
     height: 48vh;
     overflow-y: scroll;
 }
-
+#product::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
 #productSpan {
     margin: 10px;
     display: grid;
@@ -126,15 +137,20 @@
     width: 100%;
     height: 125px;
     background-color: cadetblue;
-    border-radius: 5px;
+    /* border-radius: 5px; */
+    border: 1px solid black;
     display: flex;
     flex-direction: column;
     padding: 5px 0px 0px 5px;
-    box-shadow: 0px 0px 4px 0px;
+    /* box-shadow: 0px 0px 4px 0px; */
     justify-content: flex-start;
+    transition: 0.1s;
     /* align-items: center; */
 }
-
+#productCard:hover{
+    transform: scale(0.98);
+    transition: 0.1s;
+}
 /* footer section */
 #footer {
     position: absolute;
@@ -142,12 +158,12 @@
     bottom: 0;
     width: 50%;
     height: 5vh;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    background-color: burlywood;
+    background-color: cadetblue;
     box-shadow: 0px 0px 5px 1px;
     /* border: 1px solid; */
 }
