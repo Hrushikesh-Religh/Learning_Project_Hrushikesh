@@ -1,3 +1,7 @@
+:root{
+        --maincolor: #4B4453;
+        --sidecolor: #845EC2;
+}
 /* product page */
 #product {
     /* padding-bottom: 10px; */
